@@ -1,0 +1,8 @@
+---
+- name: Failover | Install Firefox
+  become: true
+  ansible.builtin.package:
+    name: firefox
+    state: present
+
+...

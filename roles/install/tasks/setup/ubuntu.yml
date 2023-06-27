@@ -1,0 +1,56 @@
+---
+- name: Migrate from Snap to Deb package
+  when: firefox_install_migrate_from_snap
+  become: true
+  become_user: "{{ firefox_install_user }}"
+  block:
+    - name: Check if existing snap data directory exists
+      ansible.builtin.stat:
+        path: "{{ firefox_install_snap_data_dir }}/.mozilla"
+      register: firefox_install_snap_data_dir_stat
+      when: firefox_install_migrate_data_from_snap
+
+    - name: Copy over Firefox data
+      ansible.builtin.copy:
+        src: "{{ firefox_install_snap_data_dir }}/.mozilla"
+        dest: "{{ firefox_install_deb_data_dir }}"
+        remote_src: true
+        mode: preserve
+      when:
+        - firefox_install_snap_data_dir_stat.stat.exists
+        - firefox_install_migrate_data_from_snap
+
+    - name: Remove Firefox snap
+      become: true
+      community.general.snap:
+        name: firefox
+        state: absent
+
+    - name: Remove Firefox snap data directory
+      ansible.builtin.file:
+        path: "{{ firefox_install_snap_data_dir }}"
+        state: absent
+      when: firefox_install_migrate_data_from_snap
+
+- name: Add Mozilla PPA repository
+  become: true
+  ansible.builtin.apt_repository:
+    repo: ppa:mozillateam/ppa
+    state: present
+
+- name: Set apt preferences for Firefox
+  become: true
+  ansible.builtin.copy:
+    src: firefox-apt-preferences
+    dest: /etc/apt/preferences.d/mozilla-firefox
+    owner: root
+    group: root
+    mode: "0644"
+
+- name: Install Firefox
+  become: true
+  ansible.builtin.apt:
+    name: firefox
+    state: present
+
+...

@@ -1,0 +1,8 @@
+---
+- name: Install Firefox
+  become: true
+  ansible.builtin.yum:
+    name: firefox
+    state: present
+
+...

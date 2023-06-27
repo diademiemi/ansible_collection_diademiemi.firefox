@@ -1,0 +1,11 @@
+---
+firefox_install_user: "{{ ansible_user_id }}"
+
+firefox_install_migrate_from_snap: true
+firefox_install_migrate_data_from_snap: true
+
+firefox_install_home_dir: "{{ lookup('env', 'HOME') }}"
+firefox_install_snap_data_dir: "{{ firefox_install_home_dir }}/snap/firefox/common"
+firefox_install_deb_data_dir: "{{ firefox_install_home_dir }}"
+
+...

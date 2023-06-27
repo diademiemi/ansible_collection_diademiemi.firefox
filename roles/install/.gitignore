@@ -20,6 +20,8 @@ output/
 
 **/collections/**
 !**/collections/requirements.yml
+**/roles/**
+!**/roles/requirements.yml
 !/**/.gitkeep
 
 # Byte-compiled / optimized / DLL files

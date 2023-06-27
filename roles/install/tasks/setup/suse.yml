@@ -1,0 +1,8 @@
+---
+- name: Install Firefox
+  become: true
+  community.general.zypper:
+    name: firefox
+    state: present
+
+...
