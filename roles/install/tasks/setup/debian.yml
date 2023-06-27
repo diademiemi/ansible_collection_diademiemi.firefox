@@ -1,0 +1,8 @@
+---
+- name: Install Firefox
+  become: true
+  ansible.builtin.apt:
+    name: firefox-esr
+    state: present
+
+...
