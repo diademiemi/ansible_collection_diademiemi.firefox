@@ -32,6 +32,12 @@
         state: absent
       when: firefox_install_migrate_data_from_snap
 
+- name: Ensure GPG is installed
+  become: true
+  ansible.builtin.apt:
+    name: gpg-agent
+    state: present
+
 - name: Add Mozilla PPA repository
   become: true
   ansible.builtin.apt_repository:
