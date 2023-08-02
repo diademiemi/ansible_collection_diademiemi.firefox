@@ -10,13 +10,13 @@ Include more information about install in this section.
 Requirements
 ------------
 These platforms are supported:
-- Ubuntu 20.04  
-- Ubuntu 22.04  
-- Debian 10  
-- Debian 11  
-- EL 8 (Tested on Rocky Linux 8)  
-- EL 9 (Tested on Rocky Linux 9)  
-- Fedora 38  
+- Ubuntu 20.04
+- Ubuntu 22.04
+- Debian 10
+- Debian 11
+- EL 8 (Tested on Rocky Linux 8)
+- EL 9 (Tested on Rocky Linux 9)
+- Fedora 38
 - openSUSE Leap 15.4
 
 <!--
@@ -47,9 +47,6 @@ Example Playbook
   hosts: "{{ target | default('install') }}"
   roles:
     - role: "diademiemi.install"
-      vars:
-        __role_action: "setup"  # Variable to control which tasks are ran
-        # __role_action: "upstream"  # Delegate to role from upstream provider
       tags: ['diademiemi', 'install', 'setup']    ```
 
 ```
@@ -81,4 +78,3 @@ molecule test
 ```
 
 These tests are automatically ran by GitHub Actions on push. If the tests are successful, the role is automatically published to Ansible Galaxy.
-

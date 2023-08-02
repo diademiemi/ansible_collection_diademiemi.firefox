@@ -26,6 +26,12 @@
         name: firefox
         state: absent
 
+    - name: Remove Firefox apt package
+      become: true
+      ansible.builtin.apt:
+        name: firefox
+        state: absent
+
     - name: Remove Firefox snap data directory
       ansible.builtin.file:
         path: "{{ firefox_install_snap_data_dir }}"
