@@ -28,11 +28,14 @@ Role Variables
 
 Variable | Default | Description
 --- | --- | ---
-<!--
-`variable` | `default` | Variable example
-`long_variable` | See [defaults/main.yml](./defaults/main.yml) | Variable referring to defaults
-`distro_specific_variable` | See [vars/debian.yml](./vars/debian.yml) | Variable referring to distro-specific variables
--->
+Variable | Default | Description
+---|---|---
+`firefox_install_user` | `"{{ ansible_user_id }}"` | User for the Firefox installation, defaults to the Ansible user ID.
+`firefox_install_migrate_from_snap` | `true` | Whether to migrate Firefox from a snap installation.
+`firefox_install_migrate_data_from_snap` | `true` | Whether to migrate data from the snap installation of Firefox.
+`firefox_install_home_dir` | `"{{ lookup('env', 'HOME') }}"` | Home directory for the Firefox installation, defaults to the user's HOME environment variable.
+`firefox_install_snap_data_dir` | `"{{ firefox_install_home_dir }}/snap/firefox/common"` | Directory for Firefox snap data, located under the home directory.
+`firefox_install_deb_data_dir` | `"{{ firefox_install_home_dir }}"` | Directory for Firefox DEB data, defaults to the home directory.
 
 Dependencies
 ------------
