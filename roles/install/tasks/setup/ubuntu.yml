@@ -1,6 +1,12 @@
 ---
+- name: Check if snap is installed
+  ansible.builtin.command: snap version
+  register: snap_installed
+  changed_when: false
+  failed_when: false
+
 - name: Migrate from Snap to Deb package
-  when: firefox_install_migrate_from_snap
+  when: firefox_install_migrate_from_snap and snap_installed.rc == 0
   become: true
   become_user: "{{ firefox_install_user }}"
   block:
