@@ -1,7 +1,5 @@
 Ansible Collection - diademiemi.firefox
 ========================================
-[![Molecule Test](https://github.com/diademiemi/ansible_collection_diademiemi.firefox/actions/workflows/molecule.yml/badge.svg)](https://github.com/diademiemi/ansible_collection_diademiemi.firefox/actions/workflows/molecule.yml)
-
 Documentation for the collection firefox.
 
 Contents 
@@ -9,9 +7,9 @@ Contents
 
 Roles
 ------
-Role | Description
---- | ---
-<!-- [diademiemi.firefox.role](./roles/role/) | Example role -->
+Role | Description | CI Status
+--- | --- | ---
+[diademiemi.firefox.install](./roles/install/) | Install Firefox | [![Molecule test](https://github.com/diademiemi/ansible_collection_diademiemi.firefox/actions/workflows/ansible-role-install.yml/badge.svg)](https://github.com/diademiemi/ansible_collection_diademiemi.firefox/actions/workflows/ansible-role-install.yml)
 
 Click on the role to see the README for that role.  
 
