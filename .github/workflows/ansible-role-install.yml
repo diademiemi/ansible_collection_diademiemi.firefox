@@ -9,7 +9,7 @@ name: Molecule Tests install
     branches:
       - main
     paths:
-      - "roles/install"
+      - "roles/install/**"
   workflow_dispatch:
 
 jobs:
