@@ -23,8 +23,8 @@
         remote_src: true
         mode: preserve
       when:
-        - firefox_install_snap_data_dir_stat.stat.exists
         - firefox_install_migrate_data_from_snap
+        - firefox_install_snap_data_dir_stat.stat.exists
 
     - name: Remove Firefox snap
       become: true

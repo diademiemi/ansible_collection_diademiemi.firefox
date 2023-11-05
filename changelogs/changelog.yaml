@@ -1,0 +1,10 @@
+ancestor: null
+releases:
+  1.1.0:
+    changes:
+      major_changes:
+      - fix when ordering for install role
+      release_summary: Fix when ordering for install role
+    fragments:
+    - fix.yml
+    release_date: '2023-11-05'
