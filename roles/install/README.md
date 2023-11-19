@@ -18,7 +18,7 @@ These platforms are supported:
 - EL 8 (Tested on Rocky Linux 8)
 - EL 9 (Tested on Rocky Linux 9)
 - Fedora 38
-- openSUSE Leap 15.4
+- openSUSE Leap 15.5
 
 <!--
 - List hardware requirements here  
@@ -47,10 +47,10 @@ Example Playbook
 ----------------
 
 ```yaml
-- name: Use diademiemi.install role
+- name: Use diademiemi.firefox.install role
   hosts: "{{ target | default('install') }}"
   roles:
-    - role: "diademiemi.install"
+    - role: "diademiemi.firefox.install"
       tags: ['diademiemi', 'install', 'setup']    ```
 
 ```
